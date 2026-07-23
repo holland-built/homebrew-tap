@@ -5,12 +5,12 @@
 class Bloxsmith < Formula
   desc "Bloxsmith — self-contained Infoblox BloxOne NOC dashboard (embedded UI + API proxy)."
   homepage "https://github.com/holland-built/bloxsmith"
-  version "2.1.1"
+  version "3.7.3"
   license "MIT"
 
   on_macos do
-    url "https://github.com/holland-built/bloxsmith/releases/download/v2.1.1/bloxsmith_2.1.1_macOS_universal.tar.gz"
-    sha256 "8ecf1138f28309e5c62b302bf8d0eecbfe904326e71dbd1dc14376e7f0f9477b"
+    url "https://github.com/holland-built/bloxsmith/releases/download/v3.7.3/bloxsmith_3.7.3_macOS_universal.tar.gz"
+    sha256 "d54bcf37867dd024c62f6a258ad312c6a3ed95c17e475ab5671230c4799bf269"
 
     define_method(:install) do
       bin.install "bloxsmith"
@@ -19,19 +19,27 @@ class Bloxsmith < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/holland-built/bloxsmith/releases/download/v2.1.1/bloxsmith_2.1.1_linux_amd64.tar.gz"
-      sha256 "a43369c52f2c2667566fdac45c7605144af156ab091c685e6d5508b0eb378c78"
+      url "https://github.com/holland-built/bloxsmith/releases/download/v3.7.3/bloxsmith_3.7.3_linux_amd64.tar.gz"
+      sha256 "d34d7a30f43ed7a49391fa725c0d51e5621e61912bede032866666c72043c132"
       define_method(:install) do
         bin.install "bloxsmith"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/holland-built/bloxsmith/releases/download/v2.1.1/bloxsmith_2.1.1_linux_arm64.tar.gz"
-      sha256 "19276ec1c1b2c5220d64f26a9f149bd20f2b6b9ac579c92fb1f5d669c2a04a70"
+      url "https://github.com/holland-built/bloxsmith/releases/download/v3.7.3/bloxsmith_3.7.3_linux_arm64.tar.gz"
+      sha256 "42ea24aae63796c23680c9bb59e924c7eecfaa8d4a8d3f050a7d616a71932636"
       define_method(:install) do
         bin.install "bloxsmith"
       end
     end
+  end
+
+  def caveats
+    <<~EOS
+      Start Bloxsmith by running:  bloxsmith
+      Then open the dashboard:     http://localhost:8080
+      Run it at login in the background:  bloxsmith service install
+    EOS
   end
 
   test do
