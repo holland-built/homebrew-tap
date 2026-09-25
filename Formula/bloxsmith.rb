@@ -5,12 +5,12 @@
 class Bloxsmith < Formula
   desc "Bloxsmith — self-contained Infoblox BloxOne NOC dashboard (embedded UI + API proxy)."
   homepage "https://github.com/holland-built/bloxsmith"
-  version "3.76.0"
+  version "3.77.0"
   license "MIT"
 
   on_macos do
-    url "https://github.com/holland-built/bloxsmith/releases/download/v3.76.0/bloxsmith_3.76.0_macOS_universal.tar.gz"
-    sha256 "0fc6fd8c01d104983ce498f6b2ce090a25a85e2a46a1f35c238eb352678d8b06"
+    url "https://github.com/holland-built/bloxsmith/releases/download/v3.77.0/bloxsmith_3.77.0_macOS_universal.tar.gz"
+    sha256 "6e495799e66aeb27447a9125982b19154b58b54d0a6cd0b2f58560b868b28da0"
 
     define_method(:install) do
       bin.install "bloxsmith"
@@ -19,15 +19,15 @@ class Bloxsmith < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/holland-built/bloxsmith/releases/download/v3.76.0/bloxsmith_3.76.0_linux_amd64.tar.gz"
-      sha256 "99074ae7e253f7734868c8c1269b4a6ceee6057d177cebc966e8650e6506ca1b"
+      url "https://github.com/holland-built/bloxsmith/releases/download/v3.77.0/bloxsmith_3.77.0_linux_amd64.tar.gz"
+      sha256 "ee5e56764943e38511582681937bc8424b992277109fd7a37bce3f4166040270"
       define_method(:install) do
         bin.install "bloxsmith"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/holland-built/bloxsmith/releases/download/v3.76.0/bloxsmith_3.76.0_linux_arm64.tar.gz"
-      sha256 "cf1cc4c525dd6a65edf4d46b2221083e2b96dd6ca1ad72f34c2087a2017ce042"
+      url "https://github.com/holland-built/bloxsmith/releases/download/v3.77.0/bloxsmith_3.77.0_linux_arm64.tar.gz"
+      sha256 "52f6e1825e715dd4a3bf47620c937137958a97faa190b9e476d8ba5b488a639d"
       define_method(:install) do
         bin.install "bloxsmith"
       end
